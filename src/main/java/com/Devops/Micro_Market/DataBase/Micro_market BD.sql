@@ -64,18 +64,13 @@ CREATE TABLE IF NOT EXISTS detalle_venta(
     FOREIGN KEY(producto_id) REFERENCES productos(id)
 );
 
--- =============================================
--- DATOS DE PRUEBA
--- =============================================
-
--- Categorías
 INSERT INTO categorias (nombre) VALUES
 ('Lácteos'),
 ('Bebidas'),
 ('Snacks'),
 ('Carnes');
 
--- Productos
+
 INSERT INTO productos (nombre, codigo_barras, precio, stock, estado, categoria_id) VALUES
 ('Leche Entera 1L',    '7702001001001', 3200.00, 50,  TRUE,  1),
 ('Yogur Natural 200g', '7702001001002', 1800.00, 30,  TRUE,  1),
@@ -85,14 +80,14 @@ INSERT INTO productos (nombre, codigo_barras, precio, stock, estado, categoria_i
 ('Chorizos x500g',     '7702001004001', 8500.00, 20,  TRUE,  4),
 ('Producto Inactivo',  '7702001099001', 1000.00, 0,   FALSE, 3);
 
--- Proveedores
+
 INSERT INTO proveedores (nombre, nit, telefono, correo, direccion) VALUES
 ('Lácteos del Valle S.A.',   '900123456-1', '3001234567', 'ventas@lacteosvalle.com',  'Cra 10 #20-30, Bogotá'),
 ('Distribuidora Bebidas XYZ','900654321-2', '3109876543', 'contacto@bebidasxyz.com',  'Cll 50 #15-20, Medellín'),
 ('Snacks Colombia Ltda',     '800111222-3', '3205556677', 'info@snackscol.com',        'Av 30 #45-10, Cali'),
 ('Carnes del Llano S.A.S',   '700333444-4', '3154443322', 'pedidos@carnesllano.com',  'Cll 80 #23-15, Villavicencio');
 
--- Relación Productos - Proveedores
+
 INSERT INTO productos_proveedores (producto_id, proveedor_id) VALUES
 (1, 1),
 (2, 1),
@@ -101,7 +96,7 @@ INSERT INTO productos_proveedores (producto_id, proveedor_id) VALUES
 (5, 3),
 (6, 4);
 
--- Empleados
+
 INSERT INTO empleados (cedula, nombre, cargo, fecha_ingreso, salario) VALUES
 ('1001234567', 'Carlos Pérez',  'Administrador', '2022-01-15', 3500000.00),
 ('1009876543', 'María López',   'Cajero',        '2023-03-01', 1800000.00),
@@ -109,13 +104,13 @@ INSERT INTO empleados (cedula, nombre, cargo, fecha_ingreso, salario) VALUES
 ('1007777777', 'Ana Gómez',     'Cajero',        '2023-08-20', 1800000.00),
 ('1003333333', 'Luis Herrera',  'Auxiliar',      '2024-01-05', 1300000.00);
 
--- Ventas
+
 INSERT INTO ventas (fecha, subtotal, iva, total, empleado_id) VALUES
 ('2025-05-01 10:30:00', 9400.00,  1786.00, 11186.00, 2),
 ('2025-05-02 14:00:00', 4500.00,  855.00,  5355.00,  4),
 ('2025-05-03 09:15:00', 11300.00, 2147.00, 13447.00, 2);
 
--- Detalle de Ventas
+
 INSERT INTO detalle_venta (venta_id, producto_id, cantidad, precio_unitario, subtotal) VALUES
 (1, 1, 2, 3200.00, 6400.00),
 (1, 3, 2, 1500.00, 3000.00),
