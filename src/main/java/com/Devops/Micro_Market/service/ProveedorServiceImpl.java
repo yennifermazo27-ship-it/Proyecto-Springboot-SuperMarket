@@ -68,7 +68,7 @@ public class ProveedorServiceImpl implements ProveedorService {
 
     @Override
     public void entradaAlmacen(EntradaAlmacenRequest request) {
-        // Regla de Negocio 1 - Módulo II: suma stock y vincula proveedor al producto
+        
         Producto producto = productoRepository.findById(request.getProductoId())
                 .orElseThrow(() -> new NotFound(
                         "Producto no encontrado con ID: " + request.getProductoId()));
